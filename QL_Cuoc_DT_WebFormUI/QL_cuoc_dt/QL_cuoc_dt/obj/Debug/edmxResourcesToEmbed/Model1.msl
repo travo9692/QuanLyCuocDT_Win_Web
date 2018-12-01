@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLCuocDTModelStoreContainer" CdmEntityContainer="QLCuocDTEntities">
+    <EntitySetMapping Name="ChiTietSuDungs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.ChiTietSuDung">
+        <MappingFragment StoreEntitySet="ChiTietSuDung">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="SoPhut7h23h" ColumnName="SoPhut7h23h" />
+          <ScalarProperty Name="SoPhut23h7h" ColumnName="SoPhut23h7h" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaCuocs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.GiaCuoc">
+        <MappingFragment StoreEntitySet="GiaCuoc">
+          <ScalarProperty Name="MaGiaCuoc" ColumnName="MaGiaCuoc" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="Giacuoc1" ColumnName="Giacuoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonDangKies">
+      <EntityTypeMapping TypeName="QLCuocDTModel.HoaDonDangKy">
+        <MappingFragment StoreEntitySet="HoaDonDangKy">
+          <ScalarProperty Name="MaHDDK" ColumnName="MaHDDK" />
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="ChiPhiDK" ColumnName="ChiPhiDK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonTinhCuocs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.HoaDonTinhCuoc">
+        <MappingFragment StoreEntitySet="HoaDonTinhCuoc">
+          <ScalarProperty Name="MaHDTC" ColumnName="MaHDTC" />
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="PhiHangThang" ColumnName="PhiHangThang" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="ThanhToan" ColumnName="ThanhToan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinSims">
+      <EntityTypeMapping TypeName="QLCuocDTModel.ThongTinSim">
+        <MappingFragment StoreEntitySet="ThongTinSim">
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="cuocphi" FunctionName="QLCuocDTModel.Store.cuocphi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCuocDTModel.cuocphi_Result">
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="A" ColumnName="A" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Tim" FunctionName="QLCuocDTModel.Store.Tim">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCuocDTModel.Tim_Result">
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hienthi" FunctionName="QLCuocDTModel.Store.hienthi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCuocDTModel.hienthi_Result">
+          <ScalarProperty Name="Số_Điện_Thoại" ColumnName="Số Điện Thoại" />
+          <ScalarProperty Name="Bắt_Đầu" ColumnName="Bắt Đầu" />
+          <ScalarProperty Name="Kết_Thúc" ColumnName="Kết Thúc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tinhcuoc" FunctionName="QLCuocDTModel.Store.Tinhcuoc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCuocDTModel.Tinhcuoc_Result">
+          <ScalarProperty Name="Số_Điện_Thoại" ColumnName="Số Điện Thoại" />
+          <ScalarProperty Name="Tổng_Giá_Cước" ColumnName="Tổng Giá Cước" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

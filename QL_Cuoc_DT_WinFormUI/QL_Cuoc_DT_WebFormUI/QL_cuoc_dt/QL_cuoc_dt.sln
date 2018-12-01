@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_cuoc_dt", "QL_cuoc_dt\QL_cuoc_dt.csproj", "{6B14FF49-9BEB-405E-94C2-0F1C7F92ED91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B14FF49-9BEB-405E-94C2-0F1C7F92ED91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B14FF49-9BEB-405E-94C2-0F1C7F92ED91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B14FF49-9BEB-405E-94C2-0F1C7F92ED91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B14FF49-9BEB-405E-94C2-0F1C7F92ED91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09B92452-5AD5-4D09-9B67-F9BDC149403F}
+	EndGlobalSection
+EndGlobal
