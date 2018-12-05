@@ -141,13 +141,6 @@
       <End Role="KhachHang" EntitySet="KhachHangs" />
       <End Role="ThongTinSim" EntitySet="ThongTinSims" />
     </AssociationSet>
-    <FunctionImport Name="cuocphi" ReturnType="Collection(QLCuocDTModel.cuocphi_Result)">
-      <Parameter Name="ngaybd" Mode="In" Type="String" />
-      <Parameter Name="ngaykt" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="Tim" ReturnType="Collection(QLCuocDTModel.Tim_Result)">
-      <Parameter Name="SDT" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="hienthi" ReturnType="Collection(QLCuocDTModel.hienthi_Result)">
       <Parameter Name="sdt" Mode="In" Type="String" />
       <Parameter Name="Ngaybd" Mode="In" Type="DateTime" />

@@ -9,7 +9,7 @@
     <title></title>
     
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
-   
+    <link href="Content/Site.css" rel="stylesheet" />
  <script src="Content/jquery-3.3.1.min.js"></script>
      <script src="Content/js/bootstrap.min.js"></script>
 </head>
@@ -21,62 +21,73 @@
             <asp:Image ID="Image1" runat="server" ImageUrl="~/image/789_940_162_767_thecao-vina.jpg" Width="100%" Height="300px"  />
         </p>
       
-        <p>
-           <h2 style="margin-left:250px;">TRA CỨU THÔNG TIN CƯỚC ĐIỆN THOẠI</h2>
-        </p>
+        
         </div>
 
         
-                
-        <div style="margin-left:400px;"><asp:Label ID="Label2" runat="server" Text="Nhập số điện thoại"></asp:Label>
-        &nbsp;
-        <asp:TextBox ID="TextBox1" runat="server" Width="134px"></asp:TextBox>
-        &nbsp;&nbsp;
-        <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" Width="75px" OnClick="Button1_Click1" /></div>
-        <br />
+         
         <div class ="container" style="background:white;border:2px solid #e6e6e6;">
+                  
+           <div><h2 style="padding-left:250px;">TRA CỨU THÔNG TIN CƯỚC ĐIỆN THOẠI</h2>
+        
+        
+        
+        
             <div class ="row">
-             <div class="col-md-6">   
-                 <div style="padding-top:20px; padding-left:30px;">
-        <asp:Label ID="Label3" runat="server" Text="Ngày bắt đầu"></asp:Label>
+             <div class="col-md-6">  
+                 <div style="border:2px solid #e6e6e6;  height:270px;">
+                 <div style="padding-top:20px;padding-left:30px;"><asp:Label ID="Label2" runat="server" Text="Nhập số điện thoại:"></asp:Label>
+        &nbsp;
+        &nbsp;&nbsp;
+                     <div  style="padding-right:10px;float:right;"><asp:TextBox ID="TextBox1" runat="server" Width="138px" Height="27px"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Vui lòng nhập" ForeColor="Red">Bạn chưa nhập dữ liệu</asp:RequiredFieldValidator>
+                     </div>
+                     <br />
+        &nbsp;&nbsp;
+            </div> 
+                 <div style="padding-left:30px;">
+        <asp:Label ID="Label3" runat="server" Text="Ngày bắt đầu:"></asp:Label>
                  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server" Width="116px"></asp:TextBox>
+        <div  style="padding-right:10px;float:right;"><asp:TextBox ID="TextBox2" runat="server" Width="138px" TextMode="Date"></asp:TextBox>
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Vui lòng nhập" ForeColor="Red">Bạn chưa nhập dữ liệu</asp:RequiredFieldValidator>
+
+        </div>
+
                  <br />
-        &nbsp;&nbsp;<asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" OnSelectionChanged="Calendar1_SelectionChanged" BorderWidth="1px" NextPrevFormat="FullMonth">
-            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-            <NextPrevStyle VerticalAlign="Bottom" Font-Bold="True" Font-Size="8pt" ForeColor="#333333" />
-            <OtherMonthDayStyle ForeColor="#999999" />
-            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-            <TitleStyle BackColor="White" Font-Bold="True" BorderColor="Black" BorderWidth="4px" Font-Size="12pt" ForeColor="#333399" />
-            <TodayDayStyle BackColor="#CCCCCC" />
-              </asp:Calendar>
+        &nbsp;&nbsp;</div>
+                 <div style="padding-left:30px;">
+                  <asp:Label ID="Label4" runat="server" Text="Ngày kết thúc:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div  style="padding-right:10px;float:right;"><asp:TextBox ID="TextBox3" runat="server" TextMode="Date" Width="138px"></asp:TextBox>
+                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Vui lòng nhập" ForeColor="Red">Bạn chưa nhập dữ liệu</asp:RequiredFieldValidator>
                      </div>
-         </div>
+                 </div>
+                
+                     <asp:Button ID="Button1" runat="server" Text="Xem CTSD" Width="125px" CssClass="btn-search" OnClick="Button1_Click1" />
+                     <asp:Button ID="Button4" runat="server" CssClass="btn-cuoc"  Width="125px" OnClick="Button4_Click" Text="Tính cước" />
+                     
+                 </div>
+                 </div>
                 
              <div class ="col-md-6">
-       <div style="padding-top:20px;padding-left:30px;">
-                  <asp:Label ID="Label4" runat="server" Text="Ngày kết thúc"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="White" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" OnSelectionChanged="Calendar2_SelectionChanged" Width="350px" BorderWidth="1px" NextPrevFormat="FullMonth">
-            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-            <NextPrevStyle VerticalAlign="Bottom" Font-Bold="True" Font-Size="8pt" ForeColor="#333333" />
-            <OtherMonthDayStyle ForeColor="#999999" />
-            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-            <TitleStyle BackColor="White" Font-Bold="True" BorderColor="Black" BorderWidth="4px" Font-Size="12pt" ForeColor="#333399" />
-            <TodayDayStyle BackColor="#CCCCCC" />
-        </asp:Calendar>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Tính cước" />    
+        <div style="border:2px solid #e6e6e6; height:270px;">
+            <div style="margin-left:20px; margin-top: 20px;">Hướng dẫn tra cứu:
+                <p>-Khách hàng có nhu cầu tra cứu cước sử dụng điện thoại, vui lòng nhập đầy đủ thông tin ở cả 3 ô. Trong đó, ngày bắt đầu và ngày kết thúc là thời gian mà khách hàng muốn xem chi tiết sử dụng dịch vụ. 
+            </p><p>Giá cước gọi:</p>
+            <p>Phút ngày (7:00-23:00): 200 đồng/1 phút</p>
+            <p>Phút đêm (23:00-7:00): 150 đồng/1 phút</p>
+                </div>
+             </div>
+                 
+            
         </div>
         </div>
                     
                 
             
         </div>
+            
             </div>
         <div class ="container" style="background:white;border:2px solid #e6e6e6;">
 
@@ -112,10 +123,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
-             <p>Giá cước gọi</p>
-            <p>Phút ngày(7:00-23:00): 200 đồng/1 phút</p>
-            <p>Phút đêm(23:00-7:00): 150 đồng/1 phút</p>
-           
+         
             &nbsp;</asp:Panel>
            
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

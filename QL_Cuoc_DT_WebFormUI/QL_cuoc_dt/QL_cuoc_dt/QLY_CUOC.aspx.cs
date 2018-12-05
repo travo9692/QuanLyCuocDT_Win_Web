@@ -36,7 +36,7 @@ namespace QL_cuoc_dt
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            TextBox2.Text = (Calendar1.SelectedDate.ToShortDateString());
+            //TextBox2.Text = (Calendar1.SelectedDate.ToShortDateString());
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace QL_cuoc_dt
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
-            TextBox3.Text = (Calendar2.SelectedDate.ToShortDateString());
+            //TextBox3.Text = (Calendar2.SelectedDate.ToShortDateString());
         }
 
         protected void Button3_Click(object sender, EventArgs e)

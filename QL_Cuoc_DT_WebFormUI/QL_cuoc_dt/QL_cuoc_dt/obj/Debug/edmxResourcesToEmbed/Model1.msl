@@ -69,23 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="cuocphi" FunctionName="QLCuocDTModel.Store.cuocphi">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLCuocDTModel.cuocphi_Result">
-          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
-          <ScalarProperty Name="A" ColumnName="A" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Tim" FunctionName="QLCuocDTModel.Store.Tim">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLCuocDTModel.Tim_Result">
-          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
-          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
-          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="hienthi" FunctionName="QLCuocDTModel.Store.hienthi">
       <ResultMapping>
         <ComplexTypeMapping TypeName="QLCuocDTModel.hienthi_Result">
