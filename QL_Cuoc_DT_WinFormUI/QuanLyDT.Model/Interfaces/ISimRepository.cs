@@ -15,5 +15,6 @@ namespace QuanLyDT.Model.Interfaces
         List<Sim> TimKiemSimSo(string info);
         bool ThemSim(Sim sim);
         bool UpdateSim(Sim sim);
+        bool UpdateKHSim(Sim sim);
     }
 }

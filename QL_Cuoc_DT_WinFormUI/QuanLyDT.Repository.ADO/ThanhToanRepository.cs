@@ -15,15 +15,28 @@ namespace QuanLyDT.Repository.ADO
         /// lấy danh sách HoaDonThanhToan trong database
         /// </summary>
         /// <returns></returns>
-        public List<HoaDonThanhToan> DanhSachHDTT()
+        public List<HoaDonThanhToanGUI> DanhSachHDTT()
         {
-            List<HoaDonThanhToan> list = new List<HoaDonThanhToan>();
+            List<HoaDonThanhToanGUI> list = new List<HoaDonThanhToanGUI>();
 
             DataTable table = DataProvider.Instane.ExecuteReader("EXECUTE dbo.SP_DanhSachHDTT");
 
             foreach (DataRow row in table.Rows)
             {
-                list.Add(new HoaDonThanhToan(row));
+                list.Add(new HoaDonThanhToanGUI(row));
+            }
+            return list;
+        }
+
+        public List<HoaDonThanhToanGUI> DanhSachHDTTHH()
+        {
+            List<HoaDonThanhToanGUI> list = new List<HoaDonThanhToanGUI>();
+
+            DataTable table = DataProvider.Instane.ExecuteReader("EXECUTE dbo.SP_DanhSachHDTTHH");
+
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(new HoaDonThanhToanGUI(row));
             }
             return list;
         }

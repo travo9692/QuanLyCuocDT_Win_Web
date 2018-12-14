@@ -86,9 +86,14 @@ namespace QuanLyDT.Services
 
         #region HoaDonThanhToanServices
 
-        public List<HoaDonThanhToan> DanhSachHDTT()
+        public List<HoaDonThanhToanGUI> DanhSachHDTT()
         {
             return thanhToanRepository.DanhSachHDTT();
+        }
+
+        public List<HoaDonThanhToanGUI> DanhSachHDTTHH()
+        {
+            return thanhToanRepository.DanhSachHDTTHH();
         }
 
         public List<HoaDonThanhToan> TimKiemHDTT(string col, string info)
@@ -143,6 +148,11 @@ namespace QuanLyDT.Services
         public bool UpdateSim(Sim sim)
         {
             return simRepository.UpdateSim(sim);
+        }
+
+        public bool UpdateKHSim(Sim sim)
+        {
+            return simRepository.UpdateKHSim(sim);
         }
 
         #endregion SimServices

@@ -107,5 +107,12 @@ namespace QuanLyDT.Repository.ADO
                           new object[] {sim.IDSIM, sim.SoDienThoai, sim.MaKH, sim.NgayDK, sim.TinhTrang });
             return row > 0;
         }
+
+        public bool UpdateKHSim(Sim sim)
+        {
+            int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_UpdateKHSim @MaSim , @MaKH , @Status ",
+                          new object[] { sim.IDSIM, sim.MaKH, sim.TinhTrang });
+            return row > 0;
+        }
     }
 }

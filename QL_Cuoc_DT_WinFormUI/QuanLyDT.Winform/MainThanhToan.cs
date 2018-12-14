@@ -15,18 +15,17 @@ namespace QuanLyDT.Winform
 {
     public partial class MainThanhToan : Form
     {
-        private HoaDonThanhToan thanhToan;
-        private HoaDonThanhToanGUI thanhToanGUI;
+        private HoaDonDK thanhToan;
         private KhachHang khachHang;
         private Sim sim;
         private static string makh;
+        private static int simso;
         private LibraryService libraryService;
 
         public MainThanhToan()
         {
             InitializeComponent();
-            thanhToan = new HoaDonThanhToan();
-            thanhToanGUI = new HoaDonThanhToanGUI();
+            thanhToan = new HoaDonDK();
             khachHang = new KhachHang();
             sim = new Sim();
         }
@@ -43,42 +42,31 @@ namespace QuanLyDT.Winform
             libraryService = ServiceFactory.GetLibraryService(LibraryParameter.persistancestrategy);
             //load data cho các textbox
             LoadData(title, maKH);
-            thanhToan = new HoaDonThanhToan();
-            thanhToanGUI = new HoaDonThanhToanGUI();
+            thanhToan = new HoaDonDK();
             khachHang = new KhachHang();
             sim = new Sim();
-        }
-
-        private void LoadSim()
-        {
-            
         }
 
         private void LoadData(string title, string maKH)
         {
             //set title cho form
             Text = title;
+
             makh = maKH;
-            thanhToan = new HoaDonThanhToan();
+            thanhToan = new HoaDonDK();
             khachHang = new KhachHang();
             // load data cho các textbox
-            if (libraryService.TimKiemByMaKHHDTT(maKH).Count == 0)
+            if (libraryService.TimKiemHoaDonDK("0", maKH).Count == 0)
             {
-                DateTime date = DateTime.Now;
-                txtThanhToan.Text = "false";
-                txtNgayTao.Text = date.ToString();
                 txtCuocThueBao.Text = "50000";
-
             }
             else
             {
-                foreach (HoaDonThanhToan item in libraryService.TimKiemByMaKHHDTT(maKH))
+                foreach (HoaDonDK item in libraryService.TimKiemHoaDonDK("0",maKH))
                 {
+                    txtMaHD.Text = item.MaHDDK.ToString();
                     txtMaSim.Text = item.IDSIM.ToString();
-                    txtThanhToan.Text = item.ThanhToan.ToString();
-                    txtNgayTao.Text = item.NgayTao.ToString();
-                    txtCuocThueBao.Text = item.PhiHangThang.ToString();
-                    txtThanhTien.Text = item.TongTien.ToString();
+                    txtCuocThueBao.Text = item.ChiPhiDK.ToString();
                 }
             }
 
@@ -93,18 +81,25 @@ namespace QuanLyDT.Winform
         {
             DateTime date = DateTime.Now;
             thanhToan.IDSIM = int.Parse(txtMaSim.Text.ToString());
-            thanhToan.NgayTao = date;
-            thanhToan.TongTien = int.Parse(txtThanhTien.Text.ToString());
-            thanhToan.ThanhToan = true;
-            thanhToan.TrangThai = true;
-            thanhToan.PhiHangThang = int.Parse(txtCuocThueBao.Text.ToString());
+            simso = int.Parse(txtMaSim.Text.ToString());
+            thanhToan.MaHDDK = txtMaHD.Text.ToString();
+            thanhToan.ChiPhiDK = decimal.Parse(txtCuocThueBao.Text.ToString());
 
-            if (libraryService.TimKiemByMaKHHDTT(makh).Count != 0)
+            if (libraryService.TimKiemHoaDonDK("0",makh).Count != 0)
             {
-                if (libraryService.UpdateHDTT(thanhToan))
+                if (libraryService.UpdateHoaDonDK(thanhToan))
                 {
                     if (DialogResult.OK == MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information))
                     {
+                            sim.MaKH = makh;
+                            sim.IDSIM = int.Parse(txtMaSim.Text.ToString());
+                        sim.TinhTrang = true;
+                            bool resu = libraryService.UpdateKHSim(sim);
+                            if (resu)
+                            {
+                                
+                            }
+                            else MessageBox.Show("Lỗi không thêm được s");
                         DialogResult = DialogResult.OK;
                     }
 
@@ -112,15 +107,23 @@ namespace QuanLyDT.Winform
             }
             else
             {
-                bool result = libraryService.ThemHDTT(thanhToan);
 
+                bool result = libraryService.ThemHoaDonDK(thanhToan);
+                
                 if (result)
                 {
-                    if (DialogResult.OK == MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                    sim.MaKH = makh;
+                    sim.IDSIM = int.Parse(txtMaSim.Text.ToString());
+                    sim.TinhTrang = true;
+                    bool resu = libraryService.UpdateKHSim(sim);
+                    if(resu)
                     {
-                        DialogResult = DialogResult.OK;
+                        if (DialogResult.OK == MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
                     }
-                    
+                    else MessageBox.Show("Lỗi không thêm được s");
                 }
                 else
                 {

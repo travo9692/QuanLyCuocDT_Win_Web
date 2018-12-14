@@ -9,7 +9,8 @@ namespace QuanLyDT.Model.Interfaces
 {
     public interface IThanhToanRepository
     {
-        List<HoaDonThanhToan> DanhSachHDTT();
+        List<HoaDonThanhToanGUI> DanhSachHDTT();
+        List<HoaDonThanhToanGUI> DanhSachHDTTHH();
         List<HoaDonThanhToan> TimKiemHDTT(string col, string info);
         List<HoaDonThanhToan> TimKiemByMaKHHDTT(string info);
         bool ThemHDTT(HoaDonThanhToan hoaDonThanhToan);

@@ -16,6 +16,7 @@ namespace QuanLyDT.Winform
         private LibraryService libraryService;
         private static List<Model.DTO.KhachHang> listKH;
         private static List<HoaDonThanhToan> listHDTT;
+        private static List<HoaDonThanhToanGUI> listHDTTGUI;
         private static List<Sim> listSim;
         private static List<LoaiCuoc> listLoaiCuoc;
         public static Model.DTO.KhachHang khachHangStatic;
@@ -75,12 +76,23 @@ namespace QuanLyDT.Winform
 
         private void LoadDanhSachHDTT()
         {
-            listHDTT = libraryService.DanhSachHDTT();
+            listHDTTGUI = libraryService.DanhSachHDTT();
             dgvDanhSachHoaDonThanhToan.Rows.Clear();
             dgvDanhSachHoaDonThanhToan.Refresh();
-            foreach (HoaDonThanhToan item in listHDTT)
+            foreach (HoaDonThanhToanGUI item in listHDTTGUI)
             {
-                dgvDanhSachHoaDonThanhToan.Rows.Add(item.MaHDTC, item.IDSIM, item.PhiHangThang, item.TongTien, item.NgayTao, item.ThanhToan, item.TrangThai);
+                dgvDanhSachHoaDonThanhToan.Rows.Add(item.MaHDTC, item.TenKH, item.SoDienThoai, item.PhiHangThang, item.NgayTao, item.TongTien, item.ThanhToan, item.TrangThai);
+            }
+        }
+
+        private void LoadDanhSachHDTTHH()
+        {
+            listHDTTGUI = libraryService.DanhSachHDTTHH();
+            dgvDanhSachHoaDonThanhToan.Rows.Clear();
+            dgvDanhSachHoaDonThanhToan.Refresh();
+            foreach (HoaDonThanhToanGUI item in listHDTTGUI)
+            {
+                dgvDanhSachHoaDonThanhToan.Rows.Add(item.MaHDTC, item.TenKH, item.SoDienThoai, item.PhiHangThang, item.NgayTao, item.TongTien, item.ThanhToan, item.TrangThai);
             }
         }
 
@@ -179,6 +191,8 @@ namespace QuanLyDT.Winform
                 {
                     libraryService.UpdateKHStatus(khachHang);
                     LoadDanhSachKH();
+                    LoadDanhSachHDTT();
+                    LoadDanhSachSim();
                 }
             }
         }
@@ -202,7 +216,7 @@ namespace QuanLyDT.Winform
             {
                 DataGridViewRow row = this.dgvDSSim.SelectedRows[0];
                 string maSim = row.Cells[0].Value.ToString();
-                string status = row.Cells[2].Value.ToString();
+                string status = row.Cells[4].Value.ToString();
                 if (status == "False")
                 {
                     MainChinhSuaSim f = new MainChinhSuaSim("Tiến hành chỉnh sửa", maSim);
@@ -305,28 +319,19 @@ namespace QuanLyDT.Winform
             switch (cbbTimKiemThanhToan.SelectedIndex)
             {
                 case 0:
-                    cot = "IDSIM";
+                    cot = "*";
+                    break;
+                case 1:
+                    cot = "TrangThai";
                     break;
             }
-            if (txtTimKiemThanhToan.Text == "" && cbbTimKiemThanhToan.SelectedIndex != 0)
+            if (cbbTimKiemThanhToan.SelectedIndex == 0)
             {
-                MessageBox.Show("Vui lòng nhập thông tin cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadDanhSachHDTT();
             }
             else
             {
-                if (libraryService.TimKiemHDTT(cot, txtTimKiemThanhToan.Text).Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    dgvDanhSachKH.Rows.Clear();
-                    dgvDanhSachKH.Refresh();
-                    foreach (HoaDonThanhToan item in libraryService.TimKiemHDTT(cot, txtTimKiem.Text))
-                    {
-                        dgvDanhSachHoaDonThanhToan.Rows.Add(item.MaHDTC, item.IDSIM, item.PhiHangThang, item.TongTien, item.NgayTao, item.ThanhToan, item.TrangThai);
-                    }
-                }
+                LoadDanhSachHDTTHH();
             }
         }
 
@@ -375,6 +380,17 @@ namespace QuanLyDT.Winform
         private void button10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCapNhatPhieuKham_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1("Gửi mail", "Gửi");
+            f.ShowDialog();
+            if (f.DialogResult != DialogResult.Cancel)
+            {
+                LoadDanhSachKH();
+                khachHangStatic = listKH[listKH.Count - 1];
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace QuanLyDT.Repository.ADO
         /// <returns></returns>
         public bool ThemHoaDonDK(HoaDonDK hoaDonDK)
         {
-            int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_TaoHDDangKi @MaHDDK , @IDSIM , @ChiPhi , @ChiPhiDK ",
+            int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_TaoHDDangKi @MaHDDK , @IDSIM , @ChiPhiDK ",
                                         new object[] { hoaDonDK.MaHDDK, hoaDonDK.IDSIM, hoaDonDK.ChiPhiDK });
             return row > 0;
         }
@@ -70,8 +70,8 @@ namespace QuanLyDT.Repository.ADO
         /// <returns></returns>
         public bool UpdateHoaDonDK(HoaDonDK hoaDonDK)
         {
-            int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_UpdateHoaDonDK @IDSIM , @hoaDonDK.ChiPhiDK ",
-                                        new object[] { hoaDonDK.IDSIM , hoaDonDK.ChiPhiDK });
+            int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_UpdateHoaDonDK @MaHDDK , @IDSIM , @ChiPhiDK ",
+                                        new object[] { hoaDonDK.MaHDDK , hoaDonDK.IDSIM , hoaDonDK.ChiPhiDK });
             return row > 0;
         }
     }
