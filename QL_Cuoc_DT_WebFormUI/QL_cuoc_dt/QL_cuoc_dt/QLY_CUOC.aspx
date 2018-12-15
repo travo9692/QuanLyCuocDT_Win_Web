@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QLY_CUOC.aspx.cs" Inherits="QL_cuoc_dt.QLY_CUOC" %>
 
-<%@ Register assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Data.Linq" tagprefix="dx" %>
-
+  
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

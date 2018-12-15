@@ -20,7 +20,11 @@ namespace QuanLyDT.Winform
         public MainFormChiTietSuDung()
         {
             InitializeComponent();
+            libraryService = ServiceFactory.GetLibraryService(LibraryParameter.persistancestrategy);
+            ctsd = new List<ChiTietSuDung>();
         }
+
+        
 
         private void LoadDSChiTietSuDung()
         {
@@ -31,6 +35,11 @@ namespace QuanLyDT.Winform
             {
                 dgvdsctsd.Rows.Add(item.ID, item.IDSIM, item.TGBD,item.TGKT, item.SoPhut7h23h, item.SoPhut23h7h);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadDSChiTietSuDung();
         }
     }
 }

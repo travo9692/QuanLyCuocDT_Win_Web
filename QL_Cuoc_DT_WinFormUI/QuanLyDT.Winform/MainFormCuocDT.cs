@@ -435,5 +435,11 @@ namespace QuanLyDT.Winform
             MainFormChiTietSuDung ctsd = new MainFormChiTietSuDung();
             ctsd.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainFormChiTietSuDung f = new MainFormChiTietSuDung();
+            f.ShowDialog();
+        }
     }
 }
