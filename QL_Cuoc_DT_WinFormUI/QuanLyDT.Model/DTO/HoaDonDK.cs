@@ -26,7 +26,7 @@ namespace QuanLyDT.Model.DTO
             public HoaDonDK() { }
 
         public string MaHDDK { get; set; }
-        public int? IDSIM { get; set; }
-        public decimal? ChiPhiDK { get; set; }
+        public int IDSIM { get; set; }
+        public decimal ChiPhiDK { get; set; }
     }
 }

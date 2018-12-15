@@ -28,186 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtsubj = new System.Windows.Forms.TextBox();
-            this.txtusername = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtto = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtpass = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.txtmess = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 153);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Nội dung";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 83);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Tên đăng nhập";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Đường dẫn:";
             // 
-            // label6
+            // textBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 55);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Subject";
+            this.textBox1.Location = new System.Drawing.Point(81, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // txtsubj
+            // button2
             // 
-            this.txtsubj.Location = new System.Drawing.Point(120, 51);
-            this.txtsubj.Margin = new System.Windows.Forms.Padding(4);
-            this.txtsubj.Name = "txtsubj";
-            this.txtsubj.Size = new System.Drawing.Size(440, 20);
-            this.txtsubj.TabIndex = 0;
+            this.button2.Location = new System.Drawing.Point(226, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Xác nhận";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtusername
+            // openFileDialog1
             // 
-            this.txtusername.Location = new System.Drawing.Point(120, 83);
-            this.txtusername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(440, 20);
-            this.txtusername.TabIndex = 1;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // panel1
+            // button3
             // 
-            this.panel1.Controls.Add(this.txtmess);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtto);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtpass);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnSend);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtsubj);
-            this.panel1.Controls.Add(this.txtusername);
-            this.panel1.Location = new System.Drawing.Point(1, 3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 372);
-            this.panel1.TabIndex = 7;
+            this.button3.Location = new System.Drawing.Point(312, 80);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Hủy";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label4
+            // button4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 25);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "To";
-            // 
-            // txtto
-            // 
-            this.txtto.Location = new System.Drawing.Point(120, 21);
-            this.txtto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtto.Name = "txtto";
-            this.txtto.Size = new System.Drawing.Size(383, 20);
-            this.txtto.TabIndex = 37;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 123);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Mật khẩu";
-            // 
-            // txtpass
-            // 
-            this.txtpass.Location = new System.Drawing.Point(120, 119);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(4);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.PasswordChar = '@';
-            this.txtpass.Size = new System.Drawing.Size(440, 20);
-            this.txtpass.TabIndex = 35;
-            this.txtpass.UseSystemPasswordChar = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(302, 333);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(125, 28);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.Location = new System.Drawing.Point(446, 333);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(117, 28);
-            this.btnSend.TabIndex = 9;
-            this.btnSend.Text = "Gửi";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // txtmess
-            // 
-            this.txtmess.Location = new System.Drawing.Point(120, 161);
-            this.txtmess.Multiline = true;
-            this.txtmess.Name = "txtmess";
-            this.txtmess.Size = new System.Drawing.Size(440, 151);
-            this.txtmess.TabIndex = 39;
+            this.button4.Location = new System.Drawing.Point(312, 25);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Tạo file";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 377);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(405, 115);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtsubj;
-        private System.Windows.Forms.TextBox txtusername;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtto;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox txtmess;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

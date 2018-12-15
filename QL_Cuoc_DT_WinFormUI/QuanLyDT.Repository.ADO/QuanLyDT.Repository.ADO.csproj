@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
-    <Compile Include="FileLog.cs" />
+    <Compile Include="ChiTietSuDungRepository.cs" />
     <Compile Include="HoaDonDangKyRepository.cs" />
     <Compile Include="KhachHangRepository.cs" />
     <Compile Include="LoaiCuocRepository.cs" />

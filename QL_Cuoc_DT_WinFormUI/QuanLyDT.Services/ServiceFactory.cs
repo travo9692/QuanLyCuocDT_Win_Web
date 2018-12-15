@@ -18,7 +18,9 @@ namespace QuanLyDT.Services
                     new QuanLyDT.Repository.ADO.ThanhToanRepository(),
                     new QuanLyDT.Repository.ADO.SimRepository(),
                     new QuanLyDT.Repository.ADO.LoaiCuocRepository(),
-                    new QuanLyDT.Repository.ADO.HoaDonDangKyRepository()
+                    new QuanLyDT.Repository.ADO.HoaDonDangKyRepository(),
+                    new QuanLyDT.Repository.ADO.ChiTietSuDungRepository()
+
                    );
             }
             //else

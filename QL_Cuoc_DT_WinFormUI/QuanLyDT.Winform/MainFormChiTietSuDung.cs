@@ -1,4 +1,7 @@
-﻿using System;
+﻿using QuanLyDT.Infrastructure;
+using QuanLyDT.Model.DTO;
+using QuanLyDT.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,22 @@ namespace QuanLyDT.Winform
 {
     public partial class MainFormChiTietSuDung : Form
     {
+        private static List<ChiTietSuDung> ctsd;
+        private LibraryService libraryService;
         public MainFormChiTietSuDung()
         {
             InitializeComponent();
+        }
+
+        private void LoadDSChiTietSuDung()
+        {
+            ctsd = libraryService.DSChiTietSuDung();
+            dgvdsctsd.Rows.Clear();
+            dgvdsctsd.Refresh();
+            foreach (ChiTietSuDung item in ctsd)
+            {
+                dgvdsctsd.Rows.Add(item.ID, item.IDSIM, item.TGBD,item.TGKT, item.SoPhut7h23h, item.SoPhut23h7h);
+            }
         }
     }
 }

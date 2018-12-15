@@ -11,9 +11,18 @@ namespace QuanLyDT.Repository.ADO
 {
     public class HoaDonDangKyRepository : IHoaDonDangKyRepository
     {
+
         public List<HoaDonDK> DanhSachHoaDonDK()
         {
-            throw new NotImplementedException();
+            List<HoaDonDK> list = new List<HoaDonDK>();
+
+            DataTable table = DataProvider.Instane.ExecuteReader("EXECUTE dbo.SP_DanhSachHDDK");
+
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(new HoaDonDK(row));
+            }
+            return list;
         }
 
         /// <summary>
@@ -55,6 +64,18 @@ namespace QuanLyDT.Repository.ADO
         {
             List<HoaDonDK> list = new List<HoaDonDK>();
             DataTable table = DataProvider.Instane.ExecuteReader(" EXEC  dbo.SP_TimKiemHoaDonDK  @TruongDuLieu , @ThongTin ", new object[] { col, info });
+
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(new HoaDonDK(row));
+            }
+            return list;
+        }
+
+        public List<HoaDonDK> TimKiemHoaDonDKById(int info)
+        {
+            List<HoaDonDK> list = new List<HoaDonDK>();
+            DataTable table = DataProvider.Instane.ExecuteReader(" EXEC [SP_TimKiemHoaDonDKById @ThongTin ", new object[] { info });
 
             foreach (DataRow row in table.Rows)
             {

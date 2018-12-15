@@ -11,6 +11,7 @@ namespace QuanLyDT.Model.Interfaces
     {
         List<HoaDonThanhToanGUI> DanhSachHDTT();
         List<HoaDonThanhToanGUI> DanhSachHDTTHH();
+        List<HoaDonThanhToan> DanhSachHDTC();
         List<HoaDonThanhToan> TimKiemHDTT(string col, string info);
         List<HoaDonThanhToan> TimKiemByMaKHHDTT(string info);
         bool ThemHDTT(HoaDonThanhToan hoaDonThanhToan);

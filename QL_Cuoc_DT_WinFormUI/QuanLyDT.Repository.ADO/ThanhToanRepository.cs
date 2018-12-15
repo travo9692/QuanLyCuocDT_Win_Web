@@ -41,6 +41,18 @@ namespace QuanLyDT.Repository.ADO
             return list;
         }
 
+        public List<HoaDonThanhToan> DanhSachHDTC()
+        {
+            List<HoaDonThanhToan> list = new List<HoaDonThanhToan>();
+
+            DataTable table = DataProvider.Instane.ExecuteReader("EXECUTE dbo.SP_DanhSachHDTC");
+
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(new HoaDonThanhToan(row));
+            }
+            return list;
+        }
         /// <summary>
         /// thêm HoaDonThanhToan vào database
         /// </summary>
@@ -49,7 +61,7 @@ namespace QuanLyDT.Repository.ADO
         public bool ThemHDTT(HoaDonThanhToan thanhToan)
         {
             int row = DataProvider.Instane.ExecuteNonQuery("EXEC dbo.SP_TaoHDThanhToan @MaSim , @PhiHangThang , @ThanhTien , @tgThanhToan , @ThanhToan , @Status ",
-                                        new object[] { thanhToan.IDSIM, thanhToan.PhiHangThang, thanhToan.TongTien, thanhToan.NgayTao, thanhToan.ThanhToan, thanhToan.TrangThai});
+                                        new object[] {  thanhToan.IDSIM, thanhToan.PhiHangThang, thanhToan.TongTien, thanhToan.NgayTao, thanhToan.ThanhToan, thanhToan.TrangThai});
             return row > 0;
         }
 

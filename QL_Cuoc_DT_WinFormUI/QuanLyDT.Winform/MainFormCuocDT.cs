@@ -85,6 +85,39 @@ namespace QuanLyDT.Winform
             }
         }
 
+        private void LoadTien()
+        {
+            listSim = libraryService.DanhSachSim();
+            listSim = listSim.Where(x => x.TinhTrang == true).ToList();
+            HoaDonThanhToan hdtt = new HoaDonThanhToan();
+            DateTime date = DateTime.Now;
+
+            foreach (Sim item in listSim)
+            {
+                decimal thanhtien = 0;
+                decimal chiphi = 0;
+                foreach (HoaDonDK item2 in libraryService.DanhSachHoaDonDK())
+                {
+                    hdtt.PhiHangThang = item2.ChiPhiDK;
+                    chiphi = item2.ChiPhiDK;
+                }
+                foreach (ChiTietSuDung item1 in libraryService.ChiTietSuDungByMaSim(item.IDSIM))
+                {
+                    thanhtien = thanhtien + item1.SoPhut23h7h + item1.SoPhut7h23h + chiphi;
+                }
+                hdtt.IDSIM = item.IDSIM;
+                hdtt.NgayTao = date;
+                
+                
+                hdtt.TongTien = thanhtien;
+                hdtt.ThanhToan = true;
+                hdtt.TrangThai = true;
+
+                bool result = libraryService.ThemHDTT(hdtt);
+            }
+
+        }
+
         private void LoadDanhSachHDTTHH()
         {
             listHDTTGUI = libraryService.DanhSachHDTTHH();
@@ -379,18 +412,28 @@ namespace QuanLyDT.Winform
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            Form1 f = new Form1();
+            f.ShowDialog();
+            LoadTien();
         }
 
         private void btnCapNhatPhieuKham_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1("Gửi mail", "Gửi");
+            Form2 f = new Form2();
             f.ShowDialog();
-            if (f.DialogResult != DialogResult.Cancel)
-            {
-                LoadDanhSachKH();
-                khachHangStatic = listKH[listKH.Count - 1];
-            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
+
+        private void btnHuyKham_Click(object sender, EventArgs e)
+        {
+            MainFormChiTietSuDung ctsd = new MainFormChiTietSuDung();
+            ctsd.ShowDialog();
         }
     }
 }

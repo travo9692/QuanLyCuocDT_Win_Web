@@ -9,7 +9,7 @@ namespace QuanLyDT.Model.DTO
 {
     public class HoaDonThanhToan
     {
-        public HoaDonThanhToan(string maHD, int maSim, decimal phiHangThang, decimal tongTien, DateTime tgTaoHD, bool thanhToan, bool stt)
+        public HoaDonThanhToan(int maHD, int maSim, decimal phiHangThang, decimal tongTien, DateTime tgTaoHD, bool thanhToan, bool stt)
         {
             MaHDTC = maHD;
             IDSIM = maSim;
@@ -23,7 +23,7 @@ namespace QuanLyDT.Model.DTO
 
         public HoaDonThanhToan(DataRow row)
         {
-            MaHDTC = (string)row["MaHDTC"];
+            MaHDTC = (int)row["MaHDTC"];
             IDSIM = (int)row["IDSIM"];
             PhiHangThang = (decimal)row["PhiHangThang"];
             NgayTao = (DateTime)row["NgayTao"];
@@ -34,7 +34,7 @@ namespace QuanLyDT.Model.DTO
 
         public HoaDonThanhToan() { }
 
-        public string MaHDTC { get; set; }
+        public int MaHDTC { get; set; }
         public int? IDSIM { get; set; }
         public decimal? PhiHangThang { get; set; }
         public decimal? TongTien { get; set; }

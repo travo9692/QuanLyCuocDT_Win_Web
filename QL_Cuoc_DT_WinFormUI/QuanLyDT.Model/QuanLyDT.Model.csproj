@@ -53,6 +53,7 @@
     <Compile Include="DTO\Sim.cs" />
     <Compile Include="DTO\SimGUI.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
+    <Compile Include="Interfaces\IChiTietSuDungRepository.cs" />
     <Compile Include="Interfaces\IHoaDonDangKyRepository.cs" />
     <Compile Include="Interfaces\ILoaiCuocRepository.cs" />
     <Compile Include="Interfaces\ISimRepository.cs" />

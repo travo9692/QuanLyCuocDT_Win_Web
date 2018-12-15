@@ -55,7 +55,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCapNhatPhieuKham = new System.Windows.Forms.Button();
-            this.btnHuyKham = new System.Windows.Forms.Button();
             this.dgvDanhSachHoaDonThanhToan = new System.Windows.Forms.DataGridView();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -334,7 +333,6 @@
             this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.btnCapNhatPhieuKham);
-            this.tabPage2.Controls.Add(this.btnHuyKham);
             this.tabPage2.Controls.Add(this.dgvDanhSachHoaDonThanhToan);
             this.tabPage2.Controls.Add(this.cbbTimKiemThanhToan);
             this.tabPage2.Controls.Add(this.label13);
@@ -349,7 +347,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1020, 4);
+            this.button10.Location = new System.Drawing.Point(836, 6);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(121, 25);
             this.button10.TabIndex = 45;
@@ -359,31 +357,23 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(621, 4);
+            this.button2.Location = new System.Drawing.Point(658, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 25);
             this.button2.TabIndex = 44;
             this.button2.Text = "Gửi thông báo đình chỉ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCapNhatPhieuKham
             // 
-            this.btnCapNhatPhieuKham.Location = new System.Drawing.Point(426, 5);
+            this.btnCapNhatPhieuKham.Location = new System.Drawing.Point(409, 5);
             this.btnCapNhatPhieuKham.Name = "btnCapNhatPhieuKham";
-            this.btnCapNhatPhieuKham.Size = new System.Drawing.Size(172, 25);
+            this.btnCapNhatPhieuKham.Size = new System.Drawing.Size(243, 25);
             this.btnCapNhatPhieuKham.TabIndex = 3;
-            this.btnCapNhatPhieuKham.Text = "Gửi hóa đơn thanh toán";
+            this.btnCapNhatPhieuKham.Text = "Thanh toán và gửi hóa đơn thanh toán";
             this.btnCapNhatPhieuKham.UseVisualStyleBackColor = true;
             this.btnCapNhatPhieuKham.Click += new System.EventHandler(this.btnCapNhatPhieuKham_Click);
-            // 
-            // btnHuyKham
-            // 
-            this.btnHuyKham.Location = new System.Drawing.Point(816, 5);
-            this.btnHuyKham.Name = "btnHuyKham";
-            this.btnHuyKham.Size = new System.Drawing.Size(178, 25);
-            this.btnHuyKham.TabIndex = 4;
-            this.btnHuyKham.Text = "Xem chi tiết sử dụng";
-            this.btnHuyKham.UseVisualStyleBackColor = true;
             // 
             // dgvDanhSachHoaDonThanhToan
             // 
@@ -489,7 +479,7 @@
             // 
             // btnTimKiemThanhToan
             // 
-            this.btnTimKiemThanhToan.Location = new System.Drawing.Point(315, 6);
+            this.btnTimKiemThanhToan.Location = new System.Drawing.Point(310, 6);
             this.btnTimKiemThanhToan.Name = "btnTimKiemThanhToan";
             this.btnTimKiemThanhToan.Size = new System.Drawing.Size(88, 25);
             this.btnTimKiemThanhToan.TabIndex = 2;
@@ -775,7 +765,6 @@
         private System.Windows.Forms.Button btnTimKiemThanhToan;
         private System.Windows.Forms.DataGridView dgvDanhSachHoaDonThanhToan;
         private System.Windows.Forms.Button btnCapNhatPhieuKham;
-        private System.Windows.Forms.Button btnHuyKham;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage3;

@@ -11,7 +11,7 @@ using System.Data;
 namespace QuanLyDT.Services
 {
     public class LibraryService : IKhachHangRepository, IThanhToanRepository,
-        ISimRepository, ILoaiCuocRepository, IHoaDonDangKyRepository
+        ISimRepository, ILoaiCuocRepository, IHoaDonDangKyRepository, IChiTietSuDungRepository
     {
         #region Repositories
 
@@ -20,6 +20,7 @@ namespace QuanLyDT.Services
         private ISimRepository simRepository;
         private ILoaiCuocRepository loaiCuocRepository;
         private IHoaDonDangKyRepository hoaDonDangKyRepository;
+        private IChiTietSuDungRepository chiTietSuDungRepository;
 
         #endregion Repositories
 
@@ -29,13 +30,14 @@ namespace QuanLyDT.Services
         {
         }
 
-        internal LibraryService(IKhachHangRepository khachHangRepository, IThanhToanRepository thanhToanRepository, ISimRepository simRepository, ILoaiCuocRepository loaiCuocRepository, IHoaDonDangKyRepository hoaDonDangKyRepository)
+        internal LibraryService(IKhachHangRepository khachHangRepository, IThanhToanRepository thanhToanRepository, ISimRepository simRepository, ILoaiCuocRepository loaiCuocRepository, IHoaDonDangKyRepository hoaDonDangKyRepository, IChiTietSuDungRepository chiTietSuDungRepository)
         {
             this.khachHangRepository = khachHangRepository;
             this.thanhToanRepository = thanhToanRepository;
             this.simRepository = simRepository;
             this.loaiCuocRepository = loaiCuocRepository;
             this.hoaDonDangKyRepository = hoaDonDangKyRepository;
+            this.chiTietSuDungRepository = chiTietSuDungRepository;
         }
 
         #endregion constructor
@@ -84,6 +86,30 @@ namespace QuanLyDT.Services
 
         #endregion KhachHangServices
 
+
+        #region ChiTietSuDungServices
+
+        public List<ChiTietSuDung> DSChiTietSuDung()
+        {
+            return chiTietSuDungRepository.DSChiTietSuDung();
+        }
+        public bool ThemChiTietSuDung(ChiTietSuDung ctsd)
+        {
+            return chiTietSuDungRepository.ThemChiTietSuDung(ctsd);
+        }
+
+        public List<ChiTietSuDung> ChiTietSuDungByMaSim(int info)
+        {
+            return chiTietSuDungRepository.ChiTietSuDungByMaSim(info);
+        }
+
+        //public bool ThemHDTT(List<HoaDonThanhToan> listHDTT)
+        //{
+        //    return chiTietSuDungRepository.ThemHDTT(info);
+        //}
+
+        #endregion KhachHangServices
+
         #region HoaDonThanhToanServices
 
         public List<HoaDonThanhToanGUI> DanhSachHDTT()
@@ -94,6 +120,11 @@ namespace QuanLyDT.Services
         public List<HoaDonThanhToanGUI> DanhSachHDTTHH()
         {
             return thanhToanRepository.DanhSachHDTTHH();
+        }
+
+        public List<HoaDonThanhToan> DanhSachHDTC()
+        {
+            return thanhToanRepository.DanhSachHDTC();
         }
 
         public List<HoaDonThanhToan> TimKiemHDTT(string col, string info)
@@ -183,6 +214,10 @@ namespace QuanLyDT.Services
 
         #region HoaDonDKServices
 
+        public List<HoaDonDK> DanhSachHoaDonDK()
+        {
+            return hoaDonDangKyRepository.DanhSachHoaDonDK();
+        }
         public List<HoaDonDK> GetHoaDonDK(KhachHang kh)
         {
             return hoaDonDangKyRepository.GetHoaDonDK(kh);
@@ -191,6 +226,10 @@ namespace QuanLyDT.Services
         public List<HoaDonDK> TimKiemHoaDonDK(string col, string info)
         {
             return hoaDonDangKyRepository.TimKiemHoaDonDK(col, info);
+        }
+        public List<HoaDonDK> TimKiemHoaDonDKById(int info)
+        {
+            return hoaDonDangKyRepository.TimKiemHoaDonDKById(info);
         }
 
         public bool ThemHoaDonDK(HoaDonDK hoaDonDK)

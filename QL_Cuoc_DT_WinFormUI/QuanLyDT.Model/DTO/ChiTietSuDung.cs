@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace QuanLyDT.Model.DTO
 {
-    class ChiTietSuDung
+    public class ChiTietSuDung
     {
-        public ChiTietSuDung(int iD, string iDSIM, DateTime? tGBD, DateTime? tGKT, decimal? soPhut7h23h, decimal? soPhut23h7h)
+        public ChiTietSuDung(int iD, int iDSIM, DateTime tGBD, DateTime tGKT, decimal soPhut7h23h, decimal soPhut23h7h)
         {
             ID = iD;
             IDSIM = iDSIM;
@@ -19,19 +19,30 @@ namespace QuanLyDT.Model.DTO
             SoPhut23h7h = soPhut23h7h;
         }
 
-        public int ID { get; set; }
-        public string IDSIM { get; set; }
+        public ChiTietSuDung(DataRow row)
+        {
+            ID = (int)row["ID"];
+            IDSIM = (int)row["IDSIM"];
+            TGBD = (DateTime)row["TGBD"];
+            TGKT = (DateTime)row["TGKT"];
+            SoPhut7h23h = (decimal)row["SoPhut7h23h"];
+            SoPhut23h7h = (decimal)row["SoPhut23h7h"];
+
+        }
 
         public ChiTietSuDung()
         {
         }
 
-        public DateTime? TGBD { get; set; }
+        public int ID { get; set; }
+        public int IDSIM { get; set; }
 
-        public DateTime? TGKT { get; set; }
+        public DateTime TGBD { get; set; }
 
-        public decimal? SoPhut7h23h { get; set; }
+        public DateTime TGKT { get; set; }
 
-        public decimal? SoPhut23h7h { get; set; }
+        public decimal SoPhut7h23h { get; set; }
+
+        public decimal SoPhut23h7h { get; set; }
     }
 }
